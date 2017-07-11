@@ -15,10 +15,10 @@
     "experimentalDecorators": true
   },
   "include": [
-    "src/**/*",
-    "**/*-spec.ts"
+    "src/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/*-spec.ts"
   ]
 }

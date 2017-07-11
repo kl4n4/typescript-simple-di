@@ -25,8 +25,10 @@ SimpleCI.registerByName('my-user-service', new UserService());
 
 To retreive the objects from your IoC container again you can either access them via the `SimpleCI` interface
 ```typescript
-// get an object by its name
+// get an object by its name (will return type 'any')
 const us = SimpleCI.get('userservice');
+// or if you want it typed correctly
+const usTyped = SimpleCI.get<UserService>('userservice');
 
 // get an object by its type
 const kong = SimpleCI.getByType(Kong);

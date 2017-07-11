@@ -48,7 +48,7 @@ describe ('Given an IoC container it', () => {
     // register object
     container.registerByName('my-greeter', new Greeter());
 
-    const greeter = container.get('my-greeter');
+    const greeter = container.get<Greeter>('my-greeter');
     expect(greeter).toBeDefined();
     expect(greeter.sayHello).toBeDefined();
   });

@@ -22,12 +22,12 @@ export class Container {
     this.addByName(name, service);
   }
 
-  get(name: string): any {
+  get<T = any>(name: string): T {
     return this.services[name];
   }
 
-  getByType<T>(c: new () => T): T {
-    return this.get(c.name.toLowerCase());
+  getByType<T>(c: new (...args: any[]) => T): T {
+    return this.get<T>(c.name.toLowerCase());
   }
 
   getAll(): { [name: string]: any } {

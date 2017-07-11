@@ -4,10 +4,9 @@ import { Container } from './Container';
 //   Services.add(new constructor());
 // }
 
-export function Inject(target: Object, propertyKey: string) {
+export function Inject(target: object, propertyKey: string) {
   SimpleCI.addInjectProperty(target, propertyKey);
 }
-
 
 export class SimpleCI {
   private static container: Container;
@@ -35,7 +34,7 @@ export class SimpleCI {
     return this.getContainer().get(name);
   }
 
-  static getByType<T>(c: new () => T): T {
+  static getByType<T>(c: new (...args: any[]) => T): T {
     return this.getContainer().getByType(c);
   }
 
