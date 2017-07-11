@@ -4,6 +4,10 @@
   "description": "A lean and simple Dependency Injection library for TypeScript",
   "author": "Thomas Klaner",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kl4n4/typescript-simple-di"
+  },
   "files": [
     "lib"
   ],
