@@ -1,0 +1,51 @@
+{
+  "name": "typescript-simple-di",
+  "version": "1.0.0",
+  "description": "A lean and simple Dependency Injection library for TypeScript",
+  "author": "Thomas Klaner",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf lib",
+    "lint": "tslint -c tslint.json verbose \"src/**/*.ts\"",
+    "build": "npm run lint && echo Using TypeScript && tsc --version && tsc --pretty -p .",
+    "test": "jasmine --config=jasmine.json",
+    "test:coverage": "nyc --include=\"src/**/*.ts\" --reporter=text --reporter=html --reporter=lcov jasmine --config=jasmine.json",
+    "watch": "npm run build -- --watch"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.5.53",
+    "@types/node": "^7.0.0",
+    "jasmine": "^2.6.0",
+    "nodemon": "^1.11.0",
+    "nyc": "^10.0.0",
+    "ts-node": "^3.1.0",
+    "tslint": "^5.4.3",
+    "typescript": "^2.3.4"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "lib"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [],
+    "all": true
+  }
+}
