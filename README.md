@@ -42,8 +42,12 @@ import { Inject } from 'typescript-simple-di';
 You can annotate your property like that:
 ```typescript
 class MyClass {
-  @Inject
-  private kong: Kong;
+  @Inject()
+  private userService: UserService;
+
+  @Inject('my-user-service')
+  private myUs: UserService;
 }
 ```
-**Note: this works for classes only!** The `Inject` decorator will use the property name and inject the object with this name. So in this case it will essentially assign/inject the result of `SimpleDI.get('userservice')` to this class property.
+**Note: this decorator only works for classes!** 
+If no name is specified in the `Inject` decorator it will fallback to the property type or if that's not possible the property name and inject the object with this name. So in this case above it will essentially assign/inject the result of `SimpleDI.get('kong')` to this class property.
