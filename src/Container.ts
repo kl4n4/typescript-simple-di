@@ -1,5 +1,5 @@
 export class Container {
-  private injectProperties: { [key: string]: Array<{ target: any, key: string}> } = {};
+  private injectProperties: { [key: string]: Array<{ target: any, propertyKey: string, serviceName: string}> } = {};
 
   public constructor(private providers: any[] = [], private services: { [name: string]: any } = {}) {}
 
@@ -34,10 +34,10 @@ export class Container {
     return Object.assign({}, this.services);
   }
 
-  addInjectProperty(target: any, key: string): void {
+  addInjectProperty(target: any, propertyKey: string, serviceName: string = propertyKey): void {
     if (target) {
-      this.getInjectProperty(key.toLowerCase()).push({ target, key });
-      this.inject(target, key, this.services[key.toLowerCase()]);
+      this.getInjectProperty(serviceName.toLowerCase()).push({ target, propertyKey, serviceName });
+      this.inject(target, propertyKey, this.services[serviceName.toLowerCase()]);
     }
   }
 
@@ -60,7 +60,7 @@ export class Container {
 
   private injectIntoProperties(service: any, name: string = service.constructor.name) {
     this.getInjectProperty(name.toLowerCase()).forEach((property) => {
-      this.inject(property.target, property.key, service);
+      this.inject(property.target, property.propertyKey, service);
     });
   }
 

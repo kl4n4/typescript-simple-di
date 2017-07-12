@@ -1,11 +1,14 @@
+import 'reflect-metadata';
 import { Container } from './Container';
 
-// export function Injectable(constructor: any) {
-//   Services.add(new constructor());
-// }
-
-export function Inject(target: object, propertyKey: string) {
-  SimpleDI.addInjectProperty(target, propertyKey);
+export function Inject(name?: string) {
+  return (target: object, propertyKey: string) => {
+    const metadata = Reflect.getMetadata('design:type', target, propertyKey);
+    const propertyType = (metadata && metadata.prototype && metadata.prototype.constructor)
+                          ? metadata.prototype.constructor.name : null;
+    const serviceName = (name || propertyType) || propertyKey;
+    SimpleDI.addInjectProperty(target, propertyKey, serviceName);
+  };
 }
 
 export class SimpleDI {
@@ -26,8 +29,8 @@ export class SimpleDI {
     this.getContainer().registerByName(name, serviceClass);
   }
 
-  static addInjectProperty(target: any, key: string): void {
-    this.getContainer().addInjectProperty(target, key);
+  static addInjectProperty(target: any, propertyKey: string, serviceName: string = propertyKey): void {
+    this.getContainer().addInjectProperty(target, propertyKey, serviceName);
   }
 
   static get(name: string): any {
