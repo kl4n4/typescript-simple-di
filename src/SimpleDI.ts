@@ -5,17 +5,17 @@ import { Container } from './Container';
 // }
 
 export function Inject(target: object, propertyKey: string) {
-  SimpleCI.addInjectProperty(target, propertyKey);
+  SimpleDI.addInjectProperty(target, propertyKey);
 }
 
-export class SimpleCI {
+export class SimpleDI {
   private static container: Container;
 
   private static getContainer(): Container {
-    if (!SimpleCI.container) {
-      SimpleCI.container = new Container();
+    if (!SimpleDI.container) {
+      SimpleDI.container = new Container();
     }
-    return SimpleCI.container;
+    return SimpleDI.container;
   }
 
   static register(...serviceClasses: any[]): void {
@@ -45,4 +45,4 @@ export class SimpleCI {
   private constructor() {}
 }
 
-export default SimpleCI;
+export default SimpleDI;

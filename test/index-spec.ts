@@ -1,10 +1,10 @@
 import index = require('../src/index');
 
-describe('Given the SimpleCI library it', () => {
-  it('Should provide the SimpleCI interface', () => {
-    expect(index.SimpleCI).toBeDefined();
-    expect(index.SimpleCI.register).toBeDefined();
-    expect(typeof index.SimpleCI.register).toEqual('function');
+describe('Given the SimpleDI library it', () => {
+  it('Should provide the SimpleDI interface', () => {
+    expect(index.SimpleDI).toBeDefined();
+    expect(index.SimpleDI.register).toBeDefined();
+    expect(typeof index.SimpleDI.register).toEqual('function');
   });
 
   it('Should provide the Inject decorator', () => {

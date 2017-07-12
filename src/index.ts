@@ -1,3 +1,3 @@
-import { SimpleCI } from './SimpleCi';
+import { SimpleDI } from './SimpleDI';
 
-export * from './SimpleCi';
+export * from './SimpleDI';

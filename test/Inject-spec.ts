@@ -1,9 +1,9 @@
-import { Inject, SimpleCI } from '../src/SimpleCI';
+import { Inject, SimpleDI } from '../src/SimpleDI';
 
-describe('Given an initialized SimpleCI container and the inject decorator it', () => {
+describe('Given an initialized SimpleDI container and the inject decorator it', () => {
 
   const decorator = Inject;
-  SimpleCI.registerByName('vip', { value: 'important' });
+  SimpleDI.registerByName('vip', { value: 'important' });
 
   it('Should be able to inject an object into a property of a target object', () => {
     const target: any = { vip: undefined };

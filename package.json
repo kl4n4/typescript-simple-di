@@ -1,6 +1,6 @@
 {
   "name": "typescript-simple-di",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A lean and simple Dependency Injection library for TypeScript",
   "author": "Thomas Klaner",
   "license": "MIT",
