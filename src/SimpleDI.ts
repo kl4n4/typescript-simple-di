@@ -33,8 +33,8 @@ export class SimpleDI {
     this.getContainer().addInjectProperty(target, propertyKey, serviceName);
   }
 
-  static get(name: string): any {
-    return this.getContainer().get(name);
+  static get<T = any>(name: string): any {
+    return this.getContainer().get<T>(name);
   }
 
   static getByType<T>(c: new (...args: any[]) => T): T {
